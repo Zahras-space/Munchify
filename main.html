@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Munchify</title>
+
+</head>
+
+<style>
+   *{
+    margin:0;
+    padding: 0;
+}
+
+
+  .navbar{
+    text-align: center !important;
+    float: none;
+    display: inline-block;
+  }
+
+body {
+  background-color: rgba(0,0,0,1);
+  font-weight:600;
+  text-align:center !important;
+  color: white;
+ 
+}
+
+nav {
+  background: none !important;
+  text-transform:uppercase;
+  display:inline-block ;
+  li {
+    margin-left: 3em;
+    margin-right: 3em;
+    a{
+      transition: .5s color ease-in-out;
+    }
+  }
+}
+
+.page-title {
+  opacity: .75 !important;
+}
+
+
+.search{
+    z-index: 1;
+    height: 75px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}
+.search-bar{
+    z-index: 1;
+    width: 700px;
+    background-color: rgba(255,255,255,0.2); 
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    justify-content: center;
+}
+
+::placeholder{
+    color: #000000;
+}
+
+
+.search-bar input{
+        background: transparent;
+        flex:1;
+        border:0;
+        outline:none;
+        padding: 24px 20px ;
+        font-size: 20px;
+        color: #000000;
+}
+
+.search-bar button img{
+    width: 28px;
+    z-index: 1;
+}
+
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width:60px;
+    height: 60px;
+    background: #000000;
+    cursor: pointer;
+}
+
+.maincart{
+width: 30px;
+border: 0;
+    border-radius: 50%;
+    width:60px;
+    height: 60px;
+    background: none;
+    cursor: pointer;
+}
+
+.cart-icon{
+    width: 70px;
+height: 70px;
+display: inline-block;
+margin-left: 360px;
+
+}
+.navbar-nav{
+    display: inline-block;
+    width: 100%;
+}
+#background-video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+    filter: blur(5px);
+}
+
+.centre-text{
+    margin-top: 200px;
+    text-decoration: solid;
+
+    color: rgb(255, 255, 255);
+}
+span{
+    font-size: 80px;
+
+}
+
+.info{
+  height: 60%;
+  width: 100%;
+  margin-top: 100px;
+  object-fit: contain;
+
+} 
+.image{
+  width: 100%;
+  height:99%;
+  z-index: 1;
+  margin-top: 19px;
+}
+.column{
+
+  margin-top: 390px;
+    margin-bottom: 100px;
+    text-align: left;
+    color: black;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    height: 800px;
+}
+.card-body{
+  z-index: 2;
+  width: 360px;
+  height:300px;
+  background-color: aliceblue;
+  width: 600px;
+  border-radius: 30px;
+  position: relative;
+  margin-left:134px;
+  box-shadow: 0px -3px 22px #9b9b9b;
+      }
+.card{
+  justify-content: space-evenly;
+  padding-left: 12px;
+  padding-top: 13px;
+  height: 300px;
+  border-radius: 30px;
+  
+}
+#btn{
+  width: 150px;
+  border: none;
+}
+
+.containers{
+    display: grid;
+
+}
+
+h1 {
+  font-size: calc(20px + 18vh);
+  line-height: calc(20px + 20vh);
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+    font-family: 'Ephesis', cursive;
+
+ 
+  text-align: center;
+  animation: blink 12s infinite;
+  -webkit-animation: blink 12s infinite;
+}
+
+@-webkit-keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+@keyframes blink {
+  20%,
+  24%,
+  55% {
+    color: #111;
+    text-shadow: none;
+  }
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  }
+}
+
+.categories{
+  width:100%;
+  height: 60%;
+  background-color: white;
+  margin-top: 300px;;
+  margin-bottom: 400px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.menu{
+    width: 400px;
+    padding-top: 90px;
+    padding-bottom: 20px;
+    
+ 
+}
+
+.menu:hover{
+  filter: blur(2px);
+} 
+
+.col-4{
+  position: relative;
+  width: 50%;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  
+}
+.col-4:hover .overlay {
+  opacity: 1;
+
+}
+.text {
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding-left: 206px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: 'Pacifico', cursive; 
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background: transparent;
+}
+
+.nav{
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  color:#ffffff;
+}
+
+.box{
+  color: black;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  position: relative;
+  padding-left: 600px;
+}
+
+.cart-count{
+  position: absolute;
+  background-color: #2f3542;
+  top: -5px;
+  right: 0;
+  padding: 3px;
+  height: 20px;
+  width: 20px;
+  line-height:20px ;
+  border-radius: 50%;
+  z-index: 99;
+}
+
+#cart-icon{
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-left: 227px;
+}
+
+img{
+  width: 100%;
+}
+
+.container{
+  max-width: 1200px;
+  padding: 4rem;
+  margin: auto;
+  width: 100%;
+}
+
+h2.title{
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color:#ffffff;
+}
+
+.shop-content{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,auto));
+  gap:1.5rem;
+  justify-content: center;
+  align-content: center;
+}
+
+.food-box{
+  position: relative;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(40, 37, 37, 0.1);
+  border-radius: 3px;
+}
+
+.pic{
+  overflow: hidden;
+}
+
+.pic:hover img{
+transform: scale(1.5);
+}
+.icon-inner, .ionicon, svg{
+  width: 190%;
+}
+
+
+.food-img{
+  transition: 0.4s;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.food-title{
+  font-size: 1rem;
+  font-weight: 600;
+  color:#ff6348;
+}
+
+.food-price{
+  font-weight:500 ;
+}
+
+.add-cart{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #2ed573;
+  color:white;
+  padding: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-cart:hover{
+  background-color:rgba(255, 0, 0, 0.786);
+}
+  
+
+.cart{
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 400px;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px;
+  background-color: rgb(34, 29, 29);
+  box-shadow: 0 1px 4px rgba(40, 37, 37, 0.1);
+  z-index: 100;
+}
+
+.cart-active{
+  right:0;
+  transition: 0.5s;
+}
+
+.cart-title{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  padding-bottom:20px ;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.cart-box{
+  display: grid;
+  grid-template-columns: 32% 50% 18%;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 10px;
+}
+
+.cart-img{
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border:2px solid  rgba(0,0,0,0.1);
+  padding: 5px;
+}
+.detail-box{
+  display: grid;
+  row-gap: 0.5rem;  
+}
+
+.price-box{
+  display: flex;
+    justify-content: space-between; 
+}
+
+.cart-food-title{
+   font-size: 1rem;
+   text-transform: uppercase;
+   color:#000000
+   font-weight: 500;
+}
+
+.cart-price{
+  font-weight: 500;
+}
+
+.cart-quantity{
+  border:1px solid rgba(0,0,0,0.1);
+  outline:none ;
+  width: 2.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cart-remove{
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.total{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.total-title{
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.total-price{
+  margin-left: 0.5rem;
+}
+
+.btn-buy{
+  padding: 12px 20px;
+  background-color:#2f3542;
+  color:#fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#cart-close{
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.icon-inner .ionicon svg {
+  width: 200%;
+}
+</style>
+<body>
+  <header>
+    <div class="nav">
+
+      <a href="#" class="logo">
+        <ion-icon name="fast-food"></ion-icon>
+        MUNCHIFYY
+      </a>
+
+      <div class="box">
+        <div class="cart-count">0</div>
+        <ion-icon name="cart"  id="cart-icon" ></ion-icon>
+      </div>
+
+      <div class="cart">
+        <div class="cart-title">Cart Items</div>
+        <div class="cart-content">
+        </div>
+        
+      <div class="total">
+        <div class="total-title">Total</div>
+        <div class="total-price">Rs.0</div>
+      </div>
+
+      <button class="btn-buy">Place Order</button>
+
+      <ion-icon name="close" id="cart-close"></ion-icon>
+
+      </div>
+    </div>
+  </header>
+    <div class="container-fluid">
+        <video id="background-video" autoplay loop muted>
+            <source src="pizza_-_123629 (Original).mp4" type="video/mp4" />
+        </video>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li style="display: inline-block;">
+                <div class="search">
+                <form action="" class="search-bar">
+                    <input type="text" placeholder="Search anything" name="q">
+                    <button  type="submit"><img src="Search_icon.svg.png"></button>
+                </form>
+                <button type="submit" class="maincart"><img class="cart-icon" src="cart.png">
+                </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="centre-text">
+      <h1>Munchify</h1>
+        <p style="text-decoration: bold; font-size: 30px; color: #000000c8; font-family: 'Pacifico', cursive; ">Your comfort place to the ultimate food fusion.... </p>
+      </div>
+    </div>
+
+  
+   
+    <div class="column">
+      <div class="info">
+        <p style="padding-top: 100px; font-family: 'Pacifico', cursive; font-size: 36px; text-decoration: none;">You choose the food, we handle the rest</p>
+        <img  class="image"src="info.jpg">
+      </div>
+        <div class="card-body"  class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card" class="shadow-lg p-3 mb-5 bg-white rounded">
+          <h2 style="font-family: 'Pacifico', cursive;">Munchify for business</h2>
+          <p class="card-text">Order lunch or fuel for work-from-home, late nights in the office, corporate events, client meetings, and much more.</p>
+          <a href="#menu" class="btn btn-primary" id="btn" style="background-color: rgb(229, 165, 38);">Order Now</a>
+        </div>
+        </div>
+      </div>
+    </div>
+
+<div class="categories" id="menu">
+  <div class="col-4">
+    <a href="fastfood.html">
+    <img class="menu"src="fastfood.jpg">
+    <div class="overlay">
+      <p class="text">Fast Food</p>
+    </div>  
+  </a>
+  </div>
+
+  <div class="col-4">
+    <a href="desifoods.html">
+    <img class="menu" style="height: 84%;"  src="desi.jpg">
+    <div class="overlay">
+      <p class="text">Desi Food</p>
+    </div>
+  </a>
+  </div>
+
+  <div class="col-4">
+    <a href="desserts.html">
+    <img style="height: 84%;"class="menu" src="dessert.jpg">
+    <div class="overlay">
+      <p class="text">Dessert</p>
+    </div>
+  </a>
+  </div>
+
+</div>
+
+
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <h3><b>Get Connected With us...</b></h3>
+      <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
+
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+     
+        <div class="row mt-3">
+  
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Munchify
+            </h6>
+            <p>
+              Munchify, your passport to a world of delightful flavors at your fingertips! Indulge in a culinary adventure with our easy-to-use food ordering website. From sizzling street food to gourmet delights, Munchify brings an array of mouthwatering options straight to your door. Explore diverse cuisines, discover new favorites, and satisfy your cravings effortlessly. With a click, savor the convenience and taste the excitement – because at Munchify, great food is just a few taps away!
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="fastfood.html" class="text-reset">Fast Food</a>
+            </p>
+            <p>
+              <a href="desserts.html" class="text-reset">Dessert</a>
+            </p>
+            <p>
+              <a href="desifoods.html" class="text-reset">Desi Food</a>
+            </p>
+
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#menu" target=menu class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" target="_blank" class="text-reset">Help</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i>Abbottabad, COMSATS University Islamabad</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              thegoldentrio@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> +92 3325666 536</p>
+            <p><i class="fas fa-print me-3"></i> +92 03108362 966</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" href="#">The Golden Trio</a>
+    </div>
+  </footer>
+
+
+
+
+
+  <script src="js/script.js"></script>
+
+  <script>
+  const btnCart=document.querySelector('#cart-icon');
+const cart=document.querySelector('.cart');
+const btnClose=document.querySelector('#cart-close');
+
+btnCart.addEventListener('click',()=>{
+  cart.classList.add('cart-active');
+});
+
+btnClose.addEventListener('click',()=>{
+  cart.classList.remove('cart-active');
+});
+
+document.addEventListener('DOMContentLoaded',loadFood);
+
+function loadFood(){
+  loadContent();
+
+}
+
+function loadContent(){
+  //Remove Food Items  From Cart
+  let btnRemove=document.querySelectorAll('.cart-remove');
+  btnRemove.forEach((btn)=>{
+    btn.addEventListener('click',removeItem);
+  });
+
+  //Product Item Change Event
+  let qtyElements=document.querySelectorAll('.cart-quantity');
+  qtyElements.forEach((input)=>{
+    input.addEventListener('change',changeQty);
+  });
+
+  //Product Cart
+  
+  let cartBtns=document.querySelectorAll('.add-cart');
+  cartBtns.forEach((btn)=>{
+    btn.addEventListener('click',addCart);
+  });
+
+  updateTotal();
+}
+
+
+//Remove Item
+function removeItem(){
+  if(confirm('Are Your Sure to Remove')){
+    let title=this.parentElement.querySelector('.cart-food-title').innerHTML;
+    itemList=itemList.filter(el=>el.title!=title);
+    this.parentElement.remove();
+    loadContent();
+  }
+}
+
+//Change Quantity
+function changeQty(){
+  if(isNaN(this.value) || this.value<1){
+    this.value=1;
+  }
+  loadContent();
+}
+
+let itemList=[];
+
+//Add Cart
+function addCart(){
+ let food=this.parentElement;
+ let title=food.querySelector('.food-title').innerHTML;
+ let price=food.querySelector('.food-price').innerHTML;
+ let imgSrc=food.querySelector('.food-img').src;
+ //console.log(title,price,imgSrc);
+ 
+ let newProduct={title,price,imgSrc}
+
+ //Check Product already Exist in Cart
+ if(itemList.find((el)=>el.title==newProduct.title)){
+  alert("Product Already added in Cart");
+  return;
+ }else{
+  itemList.push(newProduct);
+ }
+
+
+let newProductElement= createCartProduct(title,price,imgSrc);
+let element=document.createElement('div');
+element.innerHTML=newProductElement;
+let cartBasket=document.querySelector('.cart-content');
+cartBasket.append(element);
+loadContent();
+}
+
+
+function createCartProduct(title,price,imgSrc){
+
+  return `
+  <div class="cart-box">
+  <img src="${imgSrc}" class="cart-img">
+  <div class="detail-box">
+    <div class="cart-food-title">${title}</div>
+    <div class="price-box">
+      <div class="cart-price">${price}</div>
+       <div class="cart-amt">${price}</div>
+   </div>
+    <input type="number" value="1" class="cart-quantity">
+  </div>
+  <ion-icon name="trash" class="cart-remove"></ion-icon>
+</div>
+  `;
+}
+
+function updateTotal()
+{
+  const cartItems=document.querySelectorAll('.cart-box');
+  const totalValue=document.querySelector('.total-price');
+
+  let total=0;
+
+  cartItems.forEach(product=>{
+    let priceElement=product.querySelector('.cart-price');
+    let price=parseFloat(priceElement.innerHTML.replace("Rs.",""));
+    let qty=product.querySelector('.cart-quantity').value;
+    total+=(price*qty);
+    product.querySelector('.cart-amt').innerText="Rs."+(price*qty);
+
+  });
+
+  totalValue.innerHTML='Rs.'+total;
+
+
+  // Add Product Count in Cart Icon
+
+  const cartCount=document.querySelector('.cart-count');
+  let count=itemList.length;
+  cartCount.innerHTML=count;
+
+  if(count==0){
+    cartCount.style.display='none';
+  }else{
+    cartCount.style.display='block';
+  }
+
+
+}
+</script>
+</body>    
+
+</html>

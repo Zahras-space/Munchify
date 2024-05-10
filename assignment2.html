@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>invoice slip</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Invoice</h1>
+            <p>fill the invoice please</p>
+        </div>
+        <div class="col-md-4">
+            <h1>Bill</h1>
+            <input type="text" id="" class="form-control">
+            <textarea id="" class="form-control mt-3"> </textarea>
+        </div>
+        <div class="col-md-12 mt-2">
+            <table class="table table-bordered">
+                <tr>
+                    <th>status</th>
+                    <th>Item No.</th>
+                    <th>Item Name</th>
+                    <th>Item Price</th>
+                    <th>Item Qnt</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td> <button class="btn btn-danger"> D</button></td>
+                    <td> <input class="form-control" type="number"  value="1"  readonly></td>
+                    <td> <input class="form-control" type="text" id="item-name"></td>
+                    <td> <input class="form-control" type="number" id="item-price" onkeyup="getTotal()"></td>
+                    <td> <input class="form-control" type="number" id="item-qnt" onkeyup="getTotal()"></td>
+                    <td> <input class="form-control" type="text" readonly id="total"></td>
+                </tr>
+                <tr>
+                    <td colspan="4"></td>
+                    <td colspan="2">
+                        sub total
+                        <input type="number" id="subtotal" class="form-control" readonly>
+                        Tax(%)
+                        <input type="number" id="tax" onkeyup="calculateTax()" class="form-control">
+                        Tax Amount 
+                        <input type="number" id="tax-tol" class="form-control" readonly>
+                        Net Total
+                        <input type="number" id="net-tol" class="form-control" readonly>
+                    </td>
+                   
+                </tr>
+            </table>
+        </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+     function getTotal()
+    {
+    var price= document.getElementById('item-price').value;
+    var qnt= document.getElementById('item-qnt').value;
+    var ttl= price*qnt;
+    document.getElementById('total').value=ttl;
+    document.getElementById('subtotal').value=ttl;
+    calculateTax();
+    }
+
+     function calculateTax()
+    {
+    var amt = document.getElementById('subtotal').value;
+    var tax = document.getElementById('tax').value;   
+    var taxamount =(tax*amt)/100; 
+    var nettotal= Number(amt)+Number(taxamount);
+    document.getElementById('tax-tol').value=taxamount;
+    document.getElementById('net-tol').value=nettotal;
+    }
+     
+
+  </script>
+</body>
+</html>
